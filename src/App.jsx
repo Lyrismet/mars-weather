@@ -2,19 +2,17 @@ import "./App.scss";
 import {useState} from "react";
 import {GetQuote} from "./api.js";
 import * as data from "./data/backwords.json";
-import {useTranslation} from "react-i18next";
 
 function App() {
     const words = data.words;
     const starCount = 80;
-    const {t} = useTranslation();
     const [quote, setQuote] = useState(null);
     const generate = () => {
         GetQuote()
             .then(result => setQuote({
         quote: result[0].quote,
         author: result[0].author
-    })) ;
+    }));
 
     }
     const createStars = () => {
