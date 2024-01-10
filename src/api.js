@@ -1,12 +1,18 @@
 import axios from "axios";
 
-const API_KEY = "YnC1xVug0kvxp9isY5lRGOEV7coiIcCLfRJHa8EJ";
-const BASE_URL = "https://api.nasa.gov/insight_weather/";
+const API_KEY = "J0wPqUjoaVn7MXB0KpfZYw==xAeVeR9y7RIpY3Uc";
+const BASE_URL = "https://api.api-ninjas.com/v1/quotes?category=inspirational";
 
-export const getWeather = async () => {
+export const GetQuote = async () => {
   try {
     const response = await axios.get(
-      `${BASE_URL}?api_key=${API_KEY}&feedtype=json&ver=1.0`,
+      BASE_URL, {
+        method: "GET",
+        headers: {
+            'X-Api-Key': API_KEY
+        },
+          contentType: "application/json",
+        }
     );
     return response.data;
   } catch (error) {
